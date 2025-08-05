@@ -1,9 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-API_KEY = 'AIzaSyDlpAVkHlV6QJse7fqwsSi78rvYB1n6VnY'  # ここにAPIキーを入力
-CX = '87688d3c09a364791'            # ここにカスタム検索エンジンIDを入力
+
+API_KEY = os.getenv('GOOGLE_API_KEY')  # ここにAPIキーを入力
+CX = os.getenv('GOOGLE_CX')            # ここにカスタム検索エンジンIDを入力
 
 # Google検索ツール（ダミー）
 # 実際にはGoogle Search APIを利用しますが、ここではシンプルな例として定義します。

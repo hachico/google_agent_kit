@@ -2,9 +2,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import initialize_agent, AgentType, Tool
 from tools import search_website, get_web_content
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # 環境変数からGemini APIキーを読み込み
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyD90mQbSJiOvJKZklUpe4Sjr-xR9ztzlTE'
+os.environ['GOOGLE_API_KEY'] = os.getenv('GEMINI_API_KEY')
 
 # Geminiモデルの初期化
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-pro")
